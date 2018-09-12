@@ -84,7 +84,7 @@ window.onload = function() {
             var top = $toc.offsetTop;
             var left = $toc.offsetLeft;
             var width = $toc.offsetWidth;
-            if(getScrollTop() <= top + 300){
+            if(getScrollTop() <= top + 340){
                 $toc.style = "";
             } else {
                 $toc.style.position = "fixed";
