@@ -84,13 +84,13 @@ window.onload = function() {
             var top = $toc.offsetTop;
             var left = $toc.offsetLeft;
             var width = $toc.offsetWidth;
-            if(getScrollTop() - 100 <= top){
+            if(getScrollTop() <= top){
                 $toc.style = "";
             } else {
                 $toc.style.position = "fixed";
                 $toc.style.top = "5px";
                 $toc.style.left = left + "px";
-                $toc.style.width = width + "px"
+                $toc.style.width = width + "px";
             }
         }
         clearTimeout(timer);
