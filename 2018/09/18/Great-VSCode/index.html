@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Pyzz">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://Pyzz.top">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>如何利用VSCode优雅的使用git提交至github | Pyzz</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Pyzz" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Pyzz'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://Pyzz.top">Pyzz</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="如何利用VSCode优雅的使用git提交至github">
+            
+	            如何利用VSCode优雅的使用git提交至github
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/09/18</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="1-创建一个仓库来放你的项目"><a href="#1-创建一个仓库来放你的项目" class="headerlink" title="1.创建一个仓库来放你的项目"></a>1.创建一个仓库来放你的项目</h1><p>  <img src="/img/1.png" alt="创建仓库"></p>
+<h1 id="2-设置"><a href="#2-设置" class="headerlink" title="2.设置"></a>2.设置</h1><ul>
+<li>创建完成后，任意地点创建一个空文件夹，名字随意；或者打开一个已有项目的文件夹。<ul>
+<li>我是新创建了一个文件夹VSCodeTest<br><img src="/img/2.png" alt="创建目录或跳转至项目目录"></li>
+</ul>
+</li>
+<li>在当前文件夹下右击执行Git Bash（这里不考虑cmd）</li>
+<li><p>输入如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>之后你会在你的文件夹下看见一个<code>.git</code>的隐藏文件<br><img src="/img/3.png" alt="初始化"></p>
+</li>
+<li>此时说明该文件夹已经成为受控制的文件夹</li>
+<li>由于我的文件夹内是空的所以我创建了一个名为<code>test.php</code>的文件，你也可以将你的项目拖进此文件夹下</li>
+<li><p>依次输入如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add test.php</span><br><span class="line">git commit -m &quot;第一次提交&quot; //注释说明</span><br><span class="line">git remote add origin https://github.com/AlwaysbeFun/VSCode_Git_Test.git </span><br><span class="line">git push -u origin master  //提交到你的仓库</span><br></pre></td></tr></table></figure>
+<p><img src="/img/4.png" alt="执行命令"></p>
+<ul>
+<li><strong>注意</strong>：<code>https://github.com/AlwaysbeFun/VSCode_Git_Test.git</code>这个地址一定不要写错。这个地址就是你仓库的地址，可以打开GitHub，点开你的仓库，就可以看见这个地址，直接复制过来就行。</li>
+<li><p><strong>再次注意</strong>：如果你是第一次通过git去使用GitHub，还需要有几个步骤需要去做<br>1.全局配置</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的用户名&quot;</span><br><span class="line">git config --global user.email &quot;你的邮箱&quot;</span><br></pre></td></tr></table></figure>
+<p>2.设置GitHub上的SSH Key，这里就不详细说这个了，很简单去百度查一查，也就是按几下回车的事情<br><img src="/img/6.png" alt="仓库地址"></p>
+</li>
+</ul>
+</li>
+<li><p>接下来就可以在GitHub上看到你提交的代码了<br><img src="/img/5.png" alt="查看效果"></p>
+</li>
+</ul>
+<h1 id="3-利用VSCodes上传代码至GitHub"><a href="#3-利用VSCodes上传代码至GitHub" class="headerlink" title="3.利用VSCodes上传代码至GitHub"></a>3.利用VSCodes上传代码至GitHub</h1><h2 id="1-文件的变化"><a href="#1-文件的变化" class="headerlink" title="(1)文件的变化"></a>(1)文件的变化</h2><ul>
+<li><p>接下来事情就很简单了，在VSCode中打开受控制的文件夹或者说打开你初始化后的的项目，我新建立一个hahaha.php的文件，此时左侧菜单栏立马就会有反应<br><img src="/img/7.png" alt="VSCode打开"></p>
+</li>
+<li><p>由此可以得出结论，只要该文件夹下稍有变动就会检测出来，并且可以提示出来有几个文件有变动</p>
+</li>
+</ul>
+<h2 id="2-上传"><a href="#2-上传" class="headerlink" title="(2)上传"></a>(2)上传</h2><ul>
+<li><p>点击这个类似于弹弓一样的图标，我们可以发现刚才创建的hahaha.php正在等待被上传<br><img src="/img/8.png" alt="上传"></p>
+</li>
+<li><p>如果你想上传单个文件可以点击该文件右侧的小加号<br><img src="/img/9.png" alt="上传单个文件"></p>
+</li>
+<li><p>上传多个文件就可以直接点击<strong>更改</strong>右侧的加号<br><img src="/img/10.png" alt="多个文件上传"></p>
+</li>
+<li><p>上传之后会让你填写<strong>说明</strong>，说明你本次提交的东西有什么样的改动，写完之后直接按Ctrl + 回车提交<br><img src="/img/11.png" alt="填写说明"></p>
+</li>
+<li><p>到此为止还差最后一步，就是推送到GitHub相当于Git当中的pull命令。</p>
+</li>
+<li><p>还是点击弹弓一样的图标，找到你的受控制文件夹，右侧有一个“…”的图标，点击该图标会出现一个长菜单，点击其中的<strong>推送</strong>即可完成。<br><img src="/img/13.png" alt="推送"></p>
+</li>
+<li><p>完成，直接去GitHub上看效果<br><img src="/img/12.png" alt="完成"></p>
+</li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                ：
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzA1MS85NjEz">
+  <script type="text/javascript">
+     (function(d, s) {
+         var j, e = d.getElementsByTagName(s)[0];
+         if (typeof LivereTower === 'function') { return; }
+         j = d.createElement(s);
+         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+         j.async = true;
+         e.parentNode.insertBefore(j, e);
+     })(document, 'script');
+  </script>
+</div>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-创建一个仓库来放你的项目"><span class="toc-text">1.创建一个仓库来放你的项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-设置"><span class="toc-text">2.设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-利用VSCodes上传代码至GitHub"><span class="toc-text">3.利用VSCodes上传代码至GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-文件的变化"><span class="toc-text">(1)文件的变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-上传"><span class="toc-text">(2)上传</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2018
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
